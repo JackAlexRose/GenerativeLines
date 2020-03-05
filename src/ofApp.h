@@ -9,12 +9,24 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
 
-		void keyReleased(int key);
-        void keyPressed(int key);
         void drawLines(ofPoint startPoint);
         void drawSections(ofPoint startPoint);
         void timerElapsed();
+        void keyReleased(int key);
+        void loadSounds();
     
     float timerStart;
     float timer;
+    int animationSpeed;
+    float waveVolume;
+    int spacing;
+    
+    struct pianoNote{
+        int timer;
+        ofSoundPlayer sound;
+    };
+    
+    vector<pianoNote> pianos;
+    ofSoundPlayer pinkNoise;
+    
 };
