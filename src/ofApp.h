@@ -13,7 +13,6 @@ class ofApp : public ofBaseApp{
         void drawSections(ofPoint startPoint);
         void timerElapsed();
         void keyReleased(int key);
-        void loadSounds();
     
     float timerStart;
     float timer;
@@ -26,7 +25,6 @@ class ofApp : public ofBaseApp{
         ofSoundPlayer sound;
     };
     
-    vector<pianoNote> pianos;
     ofSoundPlayer pinkNoise;
     
 };

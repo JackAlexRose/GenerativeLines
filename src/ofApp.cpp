@@ -9,7 +9,6 @@ void ofApp::setup(){
     pinkNoise.load("PinkNoise.wav");
     pinkNoise.play();
     animationSpeed = 100;
-    loadSounds();
     spacing = 10;
 }
 
@@ -22,13 +21,6 @@ void ofApp::update(){
     
     if(timer > animationSpeed){
         timerElapsed();
-        pianos[0].sound.play();
-    }
-    
-    for(int i = 0; i < pianos.size(); i++){
-        if(ofGetElapsedTimeMillis() % pianos[i].timer == 0){
-            pianos[i].sound.play();
-        }
     }
 }
 
@@ -88,20 +80,5 @@ void ofApp::keyReleased(int key){
     if(key == 's'){
         if(spacing <= 1) return;
         spacing -= 1;
-    }
-}
-
-void ofApp::loadSounds(){
-    ofSoundPlayer sound;
-    int loopLength;
-
-    for(int i = 1; i < 9; i++){
-        sound.load("Piano/Eno-Piano-0" + to_string(i) + ".wav");
-        loopLength = (ofRandom(20) * 100) + 1000;
-        cout << loopLength << endl;
-        pianoNote newNote;
-        newNote.timer = loopLength;
-        newNote.sound = sound;
-        pianos.push_back(newNote);
     }
 }
